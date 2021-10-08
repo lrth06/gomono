@@ -1,3 +1,8 @@
 ./client/node_modules/
 *node_modules
 .env
+server/gomonmo
+.gitignore
+./server/.gitignore
+./client/.gitignore
+./client/build
