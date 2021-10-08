@@ -11,10 +11,11 @@ ___
 ## Commands
 
 ```bash
-## clone this repository OR 
+## clone this repository
 git clone https://github.com/lrth06/gomono.git 
 cd gomono
 docker compose up -d # Windows/Mac systems with Docker-Desktop
+### OR
 docker-compose up -d # Linux based systems with only docker CLI
 
  ```
