@@ -11,7 +11,12 @@ ___
 ## Commands
 
 ```bash
+## clone this repository OR 
+git clone https://github.com/lrth06/gomono.git 
+cd gomono
 docker compose up -d # Windows/Mac systems with Docker-Desktop
 docker-compose up -d # Linux based systems with only docker CLI
 
  ```
+
+For your convenience, and the purpose of demonstration, the images for both client and server examples have been built and are available on docker hub. That means no building or writing code to see this example in action.
