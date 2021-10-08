@@ -5,6 +5,8 @@ services:
     container_name: apiclient
     ports:
       - "80:80"
+    depends_on:
+      - "server"
 
   server:
     image: lrth06/api
@@ -12,7 +14,7 @@ services:
     ports:
       - "5000:5000"
     env_file:
-      - ./.env.sample
+      - ./server/.env
     depends_on:
       - "mongodb"
 
@@ -22,3 +24,4 @@ services:
       - "27017:27017"
     volumes:
       - "/data/db"
+    command: --quiet
