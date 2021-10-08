@@ -1,6 +1,4 @@
-./client/node_modules/
-*node_modules
+*/node_modules
 .env
-server/gomonmo
-
-./client/build
+./server/gomonmo
+*/build
