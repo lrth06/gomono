@@ -1,35 +1,24 @@
 package config
 
-import(
-	"os"
+import (
 	"context"
-    "fmt"
-    "log"
+	"fmt"
+	"os"
 
-    // "go.mongodb.org/mongo-driver/bson"
-    "go.mongodb.org/mongo-driver/mongo"
-    "go.mongodb.org/mongo-driver/mongo/options"
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-func Database(){
+func ConnDB(collection string) *mongo.Collection {
+	mongoUri := os.Getenv("MONGO_URI")
+	dbName := os.Getenv("DB_NAME")
+	clientOptions := options.Client().ApplyURI(mongoUri)
+	client, err := mongo.Connect(context.TODO(), clientOptions)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println("Connected to MongoDB!")
+	collectionReference := client.Database(dbName).Collection(collection)
+	return collectionReference
 
-	URI := os.Getenv("MONGO_URI")	
-	
-	fmt.Println(URI)
-
-	mongoURI := "mongodb://mongodb:27017"
-clientOptions := options.Client().ApplyURI(mongoURI)
-client, err := mongo.Connect(context.TODO(), clientOptions)
-
-if err != nil {
-    log.Fatal(err)
-}
-
-err = client.Ping(context.TODO(), nil)
-
-if err != nil {
-    log.Fatal(err)
-}
-
-fmt.Println("Connected to MongoDB!")
 }
